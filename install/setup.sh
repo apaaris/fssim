@@ -24,7 +24,7 @@
 set -e
 
 # Configures .bashrc and sets environment variables
-source ./set-bashrc.sh
+source ./set-zshrc.sh
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'

@@ -24,20 +24,20 @@
 
 FSSIM_DIR="$( cd -P "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd )"
 
-# add environment variables to bashrc
-if [ -z "${FSSIM}" ] && [ -z $(grep -m 1 "FSSIM" ${HOME}/.bashrc) ]; then
+# add environment variables to zshrc
+if [ -z "${FSSIM}" ] && [ -z $(grep -m 1 "FSSIM" ${HOME}/.zshrc) ]; then
     echo FSSIM_DIR
     export FSSIM=$FSSIM_DIR
 
     echo "Exporting FSSIM as ${FSSIM}"
-    echo "Adding FSSIM variables to ~/.bashrc.";
-    echo $'\n#FSSIM' >> ${HOME}/.bashrc
-    echo "export FSSIM=$FSSIM_DIR" >> ${HOME}/.bashrc
-    echo -e "\nUpdated ~/.bashrc with environment variables"
+    echo "Adding FSSIM variables to ~/.zshrc.";
+    echo $'\n#FSSIM' >> ${HOME}/.zshrc
+    echo "export FSSIM=$FSSIM_DIR" >> ${HOME}/.zshrc
+    echo -e "\nUpdated ~/.zshrc with environment variables"
     
 elif [ ! "${FSSIM}" == "${FSSIM_DIR}" ]; then
     echo -e "FSSIM is already set to a different folder: ${FSSIM}.\n"\
-         "Remove lines similar to the following from your  ~/.bashrc (and close all terminals).\n"\
+         "Remove lines similar to the following from your  ~/.zshrc (and close all terminals).\n"\
          "export FSSIM=${FSSIM}\n"
     RED='\033[0;31m'
     echo -e "${RED}###### FAIL ######"
