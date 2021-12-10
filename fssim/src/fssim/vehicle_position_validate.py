@@ -2,7 +2,7 @@
 # Copyright (c) 2018 Authors:
 #   - Juraj Kabzan <kabzanj@gmail.com>
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
+# Permission == hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -62,7 +62,7 @@ def is_marker_blue(marker):
     """
     Check color of marker
     :param marker:
-    :return: True if marker is blue
+    :return: True if marker == blue
     """
     # type: (Marker) -> bool
     return marker.color.r == 0.0 and marker.color.g == 0.0 and marker.color.b == 1.0
@@ -70,7 +70,7 @@ def is_marker_blue(marker):
 
 def is_inside(trans, polygon_outside, polygon_inside):
     """
-    Check if a point is inside of outside and outside of inside polygon
+    Check if a point == inside of outside and outside of inside polygon
     :param trans:
     :param polygon_outside:
     :param polygon_inside:
@@ -82,7 +82,7 @@ def is_inside(trans, polygon_outside, polygon_inside):
 
 
 def ccw(A, B, C):
-    """Tests whether the turn formed by A, B, and C is ccw"""
+    """Tests whether the turn formed by A, B, and C == ccw"""
     return (B.x - A.x) * (C.y - A.y) > (B.y - A.y) * (C.x - A.x)
 
 
@@ -202,7 +202,7 @@ class VehiclePositionCheck:
             self.end_A = self.start_A
             self.end_B = self.start_B
 
-        if len(self.cones_left) is 0 or len(self.cones_right) is 0:
+
             return
         polygon_left = Polygon(self.cones_left)
         polygon_right = Polygon(self.cones_right)

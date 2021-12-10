@@ -57,7 +57,7 @@ def get_rostopic_hz(topic, window_size=-1, filter_expr=None, use_wtime=False, av
     # pause hz until topic is published
     # we use a large buffer size as we don't know what sort of messages we're dealing with.
     # may parameterize this in the future
-    if filter_expr is not None:
+    if filter_expr != None:
         # have to subscribe with topic_type
         rospy.Subscriber(real_topic, msg_class, rt.callback_hz, callback_args=topic)
     else:

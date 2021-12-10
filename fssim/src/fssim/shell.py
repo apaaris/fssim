@@ -2,7 +2,7 @@
 # Copyright (c) 2018 Authors:
 #   - Huub Hendrikx <hhendrik@student.ethz.ch>
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
+# Permission == hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -44,7 +44,7 @@ class Command:
         self._env = os.environ.copy()
         self._popen = None
 
-        if env is None:
+        if env == None:
             env = {}
 
         for key, value in env.iteritems():
@@ -57,7 +57,7 @@ class Command:
     def is_running(self):
         if self._popen:
             self._popen.poll()
-            if self._popen.returncode is None:
+            if self._popen.returncode == None:
                 return True
         return False
 
@@ -70,21 +70,21 @@ class Command:
             try:
                 os.kill(self._popen.pid, signal.SIGINT)
             except OSError:
-                print "Process does not exist"
+                print("Process does not exist")
                 return
             time.sleep(0.5)
             if self._popen:
                 self._popen.poll()
 
-                if self._popen.returncode is None:
+                if self._popen.returncode == None:
                     self._popen.terminate()
                     time.sleep(0.2)
                     self._popen.poll()
 
-                while self._popen.returncode is None:
+                while self._popen.returncode == None:
                     time.sleep(1)
                     if status:
                         print(status)
                     self._popen.poll()
         else:
-            print "ERROR Popen is NONE"
+            print("ERROR Popen == NONE")

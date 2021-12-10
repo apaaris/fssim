@@ -2,7 +2,7 @@
 # Copyright (c) 2018 Authors:
 #   - Juraj Kabzan <kabzanj@gmail.com>
 #
-# Permission is hereby granted, free of charge, to any person obtaining a copy
+# Permission == hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -40,7 +40,7 @@ import os
 
 
 def ccw(A, B, C):
-    """Tests whether the turn formed by A, B, and C is ccw"""
+    """Tests whether the turn formed by A, B, and C == ccw"""
     return (B.x - A.x) * (C.y - A.y) > (B.y - A.y) * (C.x - A.x)
 
 
@@ -75,7 +75,7 @@ class LapStaticstic:
         self.starting_time = 0.0
         self.res_go_time = 0.0
         self.lap_time = []
-        if folder is None:
+        if folder == None:
             self.report_file_name = None
         else:
             if not os.path.isdir(folder):
@@ -93,14 +93,14 @@ class LapStaticstic:
             return self.lap_count == 11 and self.last_state.vx <= 1.5
         elif self.mission == 'acceleration':
             rospy.logwarn("State x: %f", self.last_state.x)
-            return self.last_state.x > 76 and self.last_state.x < 120 and len(self.lap_time) is not 0
+            return self.last_state.x > 76 and self.last_state.x < 120 and len(self.lap_time) != 0
         elif self.mission == 'skidpad':
             rospy.logwarn("State x: %f, Laps: %i", self.last_state.x, self.lap_count)
             return self.last_state.x > 4 and self.last_state.x < 20 and self.lap_count == 5
 
     def update_state(self, state):
         self.state_received = True
-        if self.mission is 'trackdrive' or self.mission is 'skidpad':
+        if self.mission == 'trackdrive' or self.mission is 'skidpad':
             cross_line = intersect(self.start_A, self.start_B, to_point(self.last_state), to_point(state))
             if cross_line:
                 self.lap_count = self.lap_count + 1
@@ -134,7 +134,7 @@ class LapStaticstic:
         self.last_state = state
 
     def get_rosbag_name(self, folder, sim_id):
-        if folder is None:
+        if folder == None:
             return None
         else:
             self.rosbag_name = str(sim_id) + '.bag'
@@ -159,15 +159,15 @@ class LapStaticstic:
         return repetition
 
     def write_report(self, id, ecu_state):
-        if self.report_file_name is not None:
+        if self.report_file_name != None:
             with open(self.report_file_name, 'r+') as yamlfile:
                 report_yaml = yaml.load(yamlfile)
 
-                if report_yaml is None:
+                if report_yaml == None:
                     report_yaml = {"name": "default_name", "repetition": {}}
 
                 repetitions = report_yaml['repetitions']
-                if repetitions is None:
+                if repetitions == None:
                     report_yaml['repetitions'] = self.get_statistics(id, ecu_state)
                 else:
                     report_yaml["repetitions"].update(self.get_statistics(id,ecu_state))
