@@ -41,7 +41,7 @@ Wheel::Wheel(gazebo::physics::ModelPtr &_model,
     unsigned int id = 0;
     radius = getCollisionRadius(joint->GetChild()->GetCollision(id));
 
-    center_pos_ = joint->GetChild()->GetCollision(id)->WorldPose().Pos;
+    center_pos_ = joint->GetChild()->GetCollision(id)->WorldPose().Pos();
 }
 
 double Wheel::getCollisionRadius(gazebo::physics::CollisionPtr _coll) {

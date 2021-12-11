@@ -71,8 +71,8 @@ void Vehicle::setPositionFromWorld() {
     const auto r     = model->WorldAngularVel();
 
     state_.x   = -1;
-    state_.y   = pos.Pos.Y();
-    state_.yaw = pos.Rot.Yaw();
+    state_.y   = pos.Pos().Y();
+    state_.yaw = pos.Rot().Yaw();
     state_.v_x = 0.0;
     state_.v_y = 0.0;
     state_.r   = 0.0;
@@ -261,9 +261,9 @@ double Vehicle::getNormalForce(const State &x) {
 }
 
 void Vehicle::setModelState(const State &x) {
-    const ingnition::math::Pose3d    pose(x.x, x.y, 0.0, 0, 0.0, x.yaw);
-    const ingnition::math::Vector3d vel(x.v_x, x.v_y, 0.0);
-    const ingnition::math::Vector3d angular(0.0, 0.0, x.r);
+    const ignition::math::Pose3d    pose(x.x, x.y, 0.0, 0, 0.0, x.yaw);
+    const ignition::math::Vector3d vel(x.v_x, x.v_y, 0.0);
+    const ignition::math::Vector3d angular(0.0, 0.0, x.r);
     model->SetWorldPose(pose);
     model->SetAngularVel(angular);
     model->SetLinearVel(vel);

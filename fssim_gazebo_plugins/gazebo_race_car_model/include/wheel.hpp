@@ -81,7 +81,7 @@ class Wheel {
     Param::Tire param_;                 // Pacejka Tire parameters
     double      radius;                      // Radious of the tire from STL [m]
 
-    gazebo::ignition::math::Vector3d center_pos_;  // Center location of the tire
+    ignition::math::Vector3d center_pos_;  // Center location of the tire
 };
 
 }  // namespace fssim
