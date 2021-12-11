@@ -110,7 +110,7 @@ class AutomatedRes:
         self.pub_initialpose = rospy.Publisher('/initialpose', PoseWithCovarianceStamped, queue_size = 1)
 
         with open(arg.config, 'r') as f:
-            self.sim_config = yaml.load(f, Loader=FullLoader)
+            self.sim_config = yaml.safe_load(f)
         self.sim_config_id = arg.sim_id
 
         self.checks_is_in_track = self.sim_config["res"]["checks"]["is_in_track"]
@@ -289,7 +289,7 @@ class AutomatedRes:
         if os.path.isfile(track_detailed_description):
             rospy.logwarn("Found detailed description")
             with open(track_detailed_description, 'r') as f:
-                self.track_details = yaml.load(f,Loader=FullLoader)
+                self.track_details = yaml.safe_load(f)
             self.track_checks.track_details = self.track_details
 
         # Parse Config paths

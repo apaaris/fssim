@@ -46,7 +46,7 @@ class Launcher:
 
     def __init__(self, args):
         with open(args.config, 'r') as f:
-            self.config = yaml.load(f, Loader=FullLoader)
+            self.config = yaml.safe_load(f)
         self.args = args
 
     def setup_report_file(self):

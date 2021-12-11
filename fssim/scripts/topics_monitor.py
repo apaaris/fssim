@@ -135,7 +135,7 @@ if __name__ == '__main__':
     topics_config = rospy.get_param("~topics_frequency_config")
 
     with open(topics_config, 'r') as f:
-        topics_frequency_config = yaml.load(f)
+        topics_frequency_config = yaml.safe_load(f)
 
     topic_monitor = MonitorTopics(topics_frequency_config['topics'])
     topic_monitor.run()
