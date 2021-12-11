@@ -55,13 +55,13 @@ class TrackStreamer : public ModelPlugin {
     };
 
     Point2d toPoint2d(const boost::shared_ptr<gazebo::physics::Entity> &e) const {
-        return {e->WorldPose().Pos.X(), e->WorldPose().Pos.Y()};
+        return {e->WorldPose().Pos().X(), e->WorldPose().Pos().Y()};
     }
 
     geometry_msgs::Point toGeomPoint(const boost::shared_ptr<gazebo::physics::Entity> &e) const {
         geometry_msgs::Point p;
-        p.x = e->WorldPose().Pos.X();
-        p.y = e->WorldPose().Pos.Y();
+        p.x = e->WorldPose().Pos().X();
+        p.y = e->WorldPose().Pos().Y();
         p.z = 0.0;
         return p;
     }
