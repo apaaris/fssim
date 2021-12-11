@@ -242,7 +242,7 @@ class AutomatedRes:
             try:
                 rate.sleep()
             except:
-                print "ROSCORE has been killed during sleep"
+                print("ROSCORE has been killed during sleep")
 
         # Write statisctics into a file
         self.statistics.write_report(self.sim_config_id, self.ecu.state == EcuState.FINNISHED_DISCIPLINE)

@@ -47,7 +47,7 @@ class Command:
         if env == None:
             env = {}
 
-        for key, value in env.iteritems():
+        for key, value in env.items():
             self._env[key] = value
 
     def run(self):
