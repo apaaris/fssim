@@ -46,7 +46,7 @@ class Launcher:
 
     def __init__(self, args):
         with open(args.config, 'r') as f:
-            self.config = yaml.load(f)
+            self.config = yaml.load(f, Loader=FullLoader)
         self.args = args
 
     def setup_report_file(self):
@@ -108,4 +108,3 @@ if __name__ == '__main__':
 
     fssim = Launcher(args)
     fssim.start()
-    #
